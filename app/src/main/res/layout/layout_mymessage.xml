@@ -11,6 +11,7 @@
     <LinearLayout
         android:padding="1dp"
         android:gravity="right"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -26,5 +27,11 @@
             android:textSize="18dp"
             android:textColor="#ffffff"
             android:layout_gravity="center"/>
+        <ImageView
+            android:id="@+id/img_avt"
+            android:src="@drawable/facebook"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
     </LinearLayout>
+
 </LinearLayout>

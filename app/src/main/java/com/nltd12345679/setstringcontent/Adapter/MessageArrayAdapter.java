@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nltd12345679.setstringcontent.Object.Message;
@@ -48,7 +49,12 @@ public class  MessageArrayAdapter extends ArrayAdapter<Message> {
         View row = giveMeMyViewPlease(context, messageList,position);
         if(messageList != null && row.findViewById(R.id.textViewMessage) != null) {
             TextView textViewMessage = (TextView) row.findViewById(R.id.textViewMessage);
+            ImageView imageView = row.findViewById(R.id.img_avt);
             Message message = messageList.get(position);
+            if (imageView!=null){
+                imageView.setImageResource(message.getAvtSender());
+            }
+
             if(textViewMessage != null) {
                 textViewMessage.setText(message.getContent());
             }

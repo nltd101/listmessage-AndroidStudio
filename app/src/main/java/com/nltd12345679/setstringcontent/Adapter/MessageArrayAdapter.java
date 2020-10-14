@@ -43,6 +43,11 @@ public class  MessageArrayAdapter extends ArrayAdapter<Message> {
         }
     }
 
+    public class ViewHolder{
+        TextView textViewMessage;
+        ImageView imageView;
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -64,30 +69,22 @@ public class  MessageArrayAdapter extends ArrayAdapter<Message> {
 
     private View giveMeMyViewPlease(Context context, List<Message> messageList, int position) {
 
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        if (messageList.get(position).getSender().equals("me"))
-        {
-            if ((position+1==messageList.size())||(!messageList.get(position+1).getSender().equals("me")))
-            {
-                 View mymessage = layoutInflater.inflate(R.layout.layout_mymessage, null );
-                return(mymessage);
-            }
-            else
-            {
+        LayoutInflater layoutInflater = (LayoutInflater) LayoutInflater.from(context);// context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        if (messageList.get(position).getSender().equals("me")) {
+            if ((position + 1 == messageList.size()) || (!messageList.get(position + 1).getSender().equals("me"))) {
+                View mymessage = layoutInflater.inflate(R.layout.layout_mymessage, null);
+                return (mymessage);
+            } else {
                 View mymessagebasic = layoutInflater.inflate(R.layout.layout_mymessage_basic, null);
-                return(mymessagebasic);
+                return (mymessagebasic);
             }
-        }else
-        {
-            if ((position+1==messageList.size())||(messageList.get(position+1).getSender().equals("me")))
-            {
-                View  yourmessage = layoutInflater.inflate(R.layout.layout_message, null);
-                return(yourmessage);
-            }
-            else
-            {
-                View  yourmessagebasic = layoutInflater.inflate(R.layout.layout_message_basic, null);
-                return(yourmessagebasic);
+        } else {
+            if ((position + 1 == messageList.size()) || (messageList.get(position + 1).getSender().equals("me"))) {
+                View yourmessage = layoutInflater.inflate(R.layout.layout_message, null);
+                return (yourmessage);
+            } else {
+                View yourmessagebasic = layoutInflater.inflate(R.layout.layout_message_basic, null);
+                return (yourmessagebasic);
             }
         }
     }
